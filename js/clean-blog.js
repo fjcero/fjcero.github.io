@@ -31,17 +31,17 @@ $(function() {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
             $.ajax({
-                url: "https://mandrillapp.com/api/1.0/messages/send.json",
+                url:  "https://mandrillapp.com/api/1.0/messages/send.json",
                 type: "POST",
                 data: {
                     key: "I72tsWtEpIY69zXOtTUthA",
                     message: {
                         subject: 'From the Website',
-                        text: phone + message,
+                        text: "Phone:" + phone + "\nMessage:\n"+ message,
                         from_name: name,
                         from_email: email,
                         to: [{
-                            email: "fjcero@gmail.com",
+                            email: "fjcero+blog@gmail.com",
                         }],
                         autotext: true,
                     }
