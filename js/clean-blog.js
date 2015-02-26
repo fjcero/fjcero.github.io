@@ -31,13 +31,20 @@ $(function() {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
             $.ajax({
-                url: "././mail/contact_me.php",
+                url: "https://mandrillapp.com/api/1.0/messages/send.json",
                 type: "POST",
                 data: {
-                    name: name,
-                    phone: phone,
-                    email: email,
-                    message: message
+                    key: "I72tsWtEpIY69zXOtTUthA",
+                    message: {
+                        subject: 'From the Website',
+                        text: phone + message,
+                        from_name: name,
+                        from_email: email,
+                        to: [{
+                            email: "fjcero@gmail.com",
+                        }],
+                        autotext: true,
+                    }
                 },
                 cache: false,
                 success: function() {
