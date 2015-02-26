@@ -1,9 +1,9 @@
-# Site settings
+	# Site settings
 title: fcaballero
 header-img: img/home-bg.jpg
 email: fjcero@gmail.com
 description: "This is my personal page to put stuff I found and ideas to do."
-baseurl: ""
+baseurl: "/"
 url: "http://fjcero.github.io"
 twitter_username:  fjcero
 github_username:   fjcero
