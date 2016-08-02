@@ -4,7 +4,8 @@ header-img: img/home-bg.jpg
 email: fjcero@gmail.com
 description: "This is my personal page to put stuff I found and ideas to do."
 baseurl: ""
-url: "http://fjcero.github.io"
+url: "https://fcaballero.com"
+enforce_ssl: "fcaballero.com"
 twitter_username:  fjcero
 github_username:   fjcero
 facebook_username: fjcero
