@@ -1,36 +1,109 @@
----
-layout: page
-description: ""
----
+<style>
+.container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+  min-height: 100%;
+  min-width: 100%;
 
-{% for post in paginator.posts %}
-<div class="post-preview">
-    <a href="{{ post.url | prepend: site.baseurl }}">
-        <h2 class="post-title">            {{ post.title }}
-        </h2>
-        {% if post.subtitle %}
-        <h3 class="post-subtitle">
-            {{ post.subtitle }}
-        </h3>
-        {% endif %}
-    </a>
-    <p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</p>
+  border: 12px solid white;
+  background: #f1f1f1;
+  box-sizing: border-box;
+}
+nav {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+nav ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: center;  
+}
+nav ul li.item { 
+  display: inline;
+  margin: 0 35px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+nav .item-1 { order: 1; }
+nav .item-2 { order: 2; }
+nav .item-3 { order: 3; }
+nav .item-4 { order: 4; }
+nav .item-5 { order: 5; }
+.logo .iso { }
+.logo .type { margin-top: 15px; } 
+
+@media (max-width: 960px) {
+  nav ul {
+    flex-direction: column;
+  }
+  nav ul li.item { 
+    display: block;
+    margin: 4.5rem 0;
+  }
+  nav .item-1 { order: 2; }
+  nav .item-2 { order: 3; }
+  nav .item-3 { order: 1; }
+  nav .item-4 { order: 4; }
+  nav .item-5 { order: 5; }  
+  object.svg {
+    height: 65px;
+  }
+  nav ul li.item.logo {
+    margin-top: 0;
+    margin-bottom: 185px;
+  }
+  .logo .iso {
+    height: calc(95px * 2.6);
+  }
+  .logo .type { 
+    height: calc(16px * 2.6);
+    margin-top: calc(15px * 2.6);
+  } 
+}
+</style>
+
+<div class="container">
+  <nav>
+    <ul>
+      <li class="item item-1">
+        <object type="image/svg+xml" data="code.svg" class="svg code">
+          Code
+        </object>
+      </li>
+      <li class="item item-2">
+        <object type="image/svg+xml" data="food.svg" class="svg food">
+          Food
+        </object>
+      </li>
+      <li class="item item-3 logo">
+        <object type="image/svg+xml" data="f.svg" class="svg iso">
+          Fran Caballero
+        </object>
+        <br>
+        <object type="image/svg+xml" data="francisco_caballero.svg" class="svg type">
+          Fran Caballero
+        </object>
+      </li>
+      <li class="item item-4">
+        <object type="image/svg+xml" data="kendo.svg" class="svg kendo">
+          Kendo
+        </object>
+      </li>
+      <li class="item item-5">
+        <object type="image/svg+xml" data="blog.svg" class="svg blog">
+          Blog
+        </object>
+      </li>
+    </ul>
+  </nav>
 </div>
-<hr>
-{% endfor %}
-
-<!-- Pager -->
-{% if paginator.total_pages > 1 %}
-<ul class="pager">
-    {% if paginator.previous_page %}
-    <li class="previous">
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
-    </li>
-    {% endif %}
-    {% if paginator.next_page %}
-    <li class="next">
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
-    </li>
-    {% endif %}
-</ul>
-{% endif %}
